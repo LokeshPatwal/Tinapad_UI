@@ -38,12 +38,17 @@ const DesktopView = () => {
       case 56:
         setChain("Binance")
         break;
+      case 137:
+        setChain("Poygon")
+        break;
       default:
-        setChain("Choose Right")
+        setChain("Choose right ")
         break;
     }
   }
-
+  const switchWallet = () => {
+    
+  }
   const disconnectWallet = async () => {
     await web3Modal.clearCachedProvider();
     setAccount("");
@@ -74,6 +79,7 @@ const DesktopView = () => {
             borderRadius: "20px",
             bgcolor: "rgba(242, 12, 236, 0.15)",
           }}
+          // onClick={() => switchWallet()}
         >
           {chain} &nbsp;Chain
         </ColorButton>
@@ -112,6 +118,45 @@ const DesktopView = () => {
 };
 
 const MobileView = () => {
+
+  const [account, setAccount] = useState("");
+  const [chain, setChain] = useState("Network");
+
+  var styledAddress = account
+    ? account.slice(0, 4) + "..." + account.slice(-4)
+    : "";
+
+  const connectWallet = async () => {
+    console.log(account);
+    const provider = await web3Modal.connect();
+    const library = new ethers.providers.Web3Provider(provider);
+    const accounts = await library.listAccounts();
+    const network = await library.getNetwork();
+    const myaccount = accounts[0];
+    setAccount(myaccount);
+    switch (network?.chainId) {
+      case 1:
+        setChain("Ethereum")
+        break;
+      case 56:
+        setChain("Binance")
+        break;
+      case 137:
+        setChain("Poygon")
+        break;
+      default:
+        setChain("Network")
+        break;
+    }
+  }
+  const switchWallet = () => {
+    connectWallet();
+  }
+  const disconnectWallet = async () => {
+    await web3Modal.clearCachedProvider();
+    setAccount("");
+    setChain("");
+  }
   return (
     <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: 'center' }}>
       <Box sx={{ width: '10%', position: 'relative', right: '18px' }}>
@@ -132,24 +177,46 @@ const MobileView = () => {
             fontSize: "13px",
             bgcolor: "rgba(242, 12, 236, 0.15)",
           }}
+          // onClick={()=> switchWallet()}
         >
-          ETH
+          {chain}
         </ColorButton>
-        <ColorButton
-          variant="contained"
-          sx={{
-            display: 'flex', justifyContent: 'center', alignItems: 'center',
-            height: "fit-content",
-            borderRadius: "20px",
-            fontWeight: "100",
-            fontSize: "13px",
-            bgcolor: "rgba(242, 12, 236, 0.15)",
-          }}
-          startIcon={<AccountBalanceWalletIcon />}
-        >
-          {" "}
-          Connect
-        </ColorButton>
+        {account === "" ? (
+          <ColorButton
+            variant="contained"
+            sx={{
+              display: 'flex', justifyContent: 'center', alignItems: 'center',
+              height: "fit-content",
+              borderRadius: "20px",
+              fontWeight: "100",
+              fontSize: "13px",
+              bgcolor: "rgba(242, 12, 236, 0.15)",
+            }}
+            onClick={() => connectWallet()}
+            startIcon={<AccountBalanceWalletIcon />}
+          >
+            {" "}
+            Connect
+          </ColorButton>
+        ) : (
+            <ColorButton
+              variant="contained"
+              sx={{
+                display: 'flex', justifyContent: 'center', alignItems: 'center',
+                height: "fit-content",
+                borderRadius: "20px",
+                fontWeight: "100",
+                fontSize: "13px",
+                bgcolor: "rgba(242, 12, 236, 0.15)",
+              }}
+            onClick={() => { disconnectWallet() }}
+            startIcon={<AccountBalanceWalletIcon />}
+          >
+            &nbsp;
+            {styledAddress}
+          </ColorButton>
+        )}
+        
       </Stack>
     </Box>
   );
