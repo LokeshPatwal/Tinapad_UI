@@ -14,6 +14,9 @@ const MainLayout = () => {
       }
     };
     setResponsiveness();
+
+    setResponsiveness();
+
     window.addEventListener("resize", () => setResponsiveness());
 
     return () => {

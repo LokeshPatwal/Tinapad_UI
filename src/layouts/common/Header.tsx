@@ -70,6 +70,7 @@ const DesktopView = () => {
         >
           Create
         </ColorButton> */}
+
         {/* instead of this i added this page now for button  */}
         <CreateButton />
 
@@ -85,11 +86,25 @@ const DesktopView = () => {
       >
         {chain} &nbsp;Chain
       </ColorButton> */}
+
         {/* instead of this i added this page now for button  */}
         <NetChainButton />
 
 
         {/* {account === "" ? (
+        </ColorButton>
+        <ColorButton
+          variant="contained"
+          startIcon={<AddCircleIcon />}
+          sx={{
+            height: "fit-content",
+            borderRadius: "20px",
+            bgcolor: "rgba(242, 12, 236, 0.15)",
+          }}
+        >
+          {chain} &nbsp;Chain
+        </ColorButton>
+        {account === "" ? (
           <ColorButton
             variant="contained"
             sx={{
@@ -122,8 +137,9 @@ const DesktopView = () => {
         <ConnectWallet />
       </Stack>
     </Box >
-  );
-};
+  )
+}
+
 
 const MobileView = () => {
   return (
