@@ -13,6 +13,7 @@ const MainLayout = () => {
         setMobileView(true);
       }
     };
+    setResponsiveness();
 
     setResponsiveness();
 

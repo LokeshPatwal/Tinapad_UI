@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Image from '../components/Image';
-import DEFI from '../assets/DefiImg.png'
+import DEFI from '../assets/DefiImg.png';
 import { Divider } from '@mui/material';
 import MoreIcon from '../components/MoreIcon';
 
@@ -18,7 +18,6 @@ import MoreIcon from '../components/MoreIcon';
 const KYCAudits = () => {
   return (
     <>
-
       <Box mx='4%'>
         <Header />
       </Box>

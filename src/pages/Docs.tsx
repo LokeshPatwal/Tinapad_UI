@@ -14,7 +14,6 @@ import MoreIcon from '../components/MoreIcon'
 const Docs = () => {
     return (
         <>
-
             <Box mx='4%'>
                 <Header />
             </Box>

@@ -8,6 +8,9 @@ import Web3Modal from "web3modal";
 import { ethers } from "ethers";
 import { providerOptions } from "./providerOptions";
 import MenuIconDrawer from "../../components/nav-section/MenuIconDrawer";
+import CreateButton from "../../components/HeaderButtons/CreateButton";
+import NetChainButton from "../../components/HeaderButtons/NetChainButton";
+import ConnectWallet from "../../components/HeaderButtons/ConnectWallet";
 
 const web3Modal = new Web3Modal({
   cacheProvider: true, // optional
@@ -54,13 +57,14 @@ const DesktopView = () => {
     setAccount("");
     setChain("");
   }
+
   return (
     <Box sx={{ display: "flex", justifyContent: "space-between" }}>
       <Box>
         <SearchBar />
       </Box>
       <Stack direction="row" spacing={2}>
-        <ColorButton
+        {/* <ColorButton
           variant="contained"
           startIcon={<AddCircleIcon />}
           sx={{
@@ -70,6 +74,29 @@ const DesktopView = () => {
           }}
         >
           Create
+        </ColorButton> */}
+
+        {/* instead of this i added this page now for button  */}
+        <CreateButton />
+
+
+        {/* <ColorButton
+        variant="contained"
+        startIcon={<AddCircleIcon />}
+        sx={{
+          height: "fit-content",
+          borderRadius: "20px",
+          bgcolor: "rgba(242, 12, 236, 0.15)",
+        }}
+      >
+        {chain} &nbsp;Chain
+      </ColorButton> */}
+
+        {/* instead of this i added this page now for button  */}
+        <NetChainButton />
+
+
+        {/* {account === "" ? (
         </ColorButton>
         <ColorButton
           variant="contained"
@@ -111,11 +138,14 @@ const DesktopView = () => {
             &nbsp;
             {styledAddress}
           </ColorButton>
-        )}
+        )} */}
+        {/* instead of this i added this page now for button  */}
+        <ConnectWallet />
       </Stack>
-    </Box>
-  );
-};
+    </Box >
+  )
+}
+
 
 const MobileView = () => {
 
