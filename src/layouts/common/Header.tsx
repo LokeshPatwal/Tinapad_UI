@@ -9,7 +9,7 @@ import { ethers } from "ethers";
 import { providerOptions } from "./providerOptions";
 import MenuIconDrawer from "../../components/nav-section/MenuIconDrawer";
 import CreateButton from "../../components/HeaderButtons/CreateButton";
-import NetChainButton from "../../components/HeaderButtons/NetChainButton";
+import EthChainButton from "../../components/HeaderButtons/EthChainButton";
 import ConnectWallet from "../../components/HeaderButtons/ConnectWallet";
 
 const web3Modal = new Web3Modal({
@@ -93,7 +93,7 @@ const DesktopView = () => {
       </ColorButton> */}
 
         {/* instead of this i added this page now for button  */}
-        <NetChainButton />
+        <EthChainButton />
 
 
         {/* {account === "" ? (
@@ -150,7 +150,7 @@ const DesktopView = () => {
 const MobileView = () => {
 
   const [account, setAccount] = useState("");
-  const [chain, setChain] = useState("Network");
+  const [chain, setChain] = useState("ETH");
 
   var styledAddress = account
     ? account.slice(0, 4) + "..." + account.slice(-4)

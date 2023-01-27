@@ -12,7 +12,7 @@ import BinanceSC from '../../assets/BinanceSC.png';
 import Ethereum from '../../assets/Ethereum.png';
 import Image from '../Image';
 
-export default function NetChainButton() {
+export default function EthChainButton() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -40,7 +40,7 @@ export default function NetChainButton() {
             }}
           >
             {/* {chain} &nbsp;Chain */}
-            Network Chain
+            Ethereum Chain
           </ColorButton>
         </Tooltip>
       </Box>
