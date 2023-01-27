@@ -188,7 +188,7 @@ const MobileView = () => {
     setChain("");
   }
   return (
-    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: 'center', mx: '4%' }}>
+    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: 'center', }}>
       <Box sx={{ width: '10%', position: 'relative', right: '18px' }}>
         <MenuIconDrawer />
       </Box>

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -8,11 +7,10 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
-import Settings from '@mui/icons-material/Settings';
-import Logout from '@mui/icons-material/Logout';
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { ColorButton } from '../Button';
+import { Link } from 'react-router-dom';
+
 
 export default function CreateButton() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -68,31 +66,29 @@ export default function CreateButton() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleClose}>
-          <Avatar /> Profile
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Avatar /> My account
-        </MenuItem>
+        <Link to="/launchpad/create-presale" style={{ textDecoration: 'none', color: 'white' }}>
+          <MenuItem onClick={handleClose}>
+            Create Normal Presale
+          </MenuItem>
+        </Link>
         <Divider />
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <PersonAdd fontSize="small" />
-          </ListItemIcon>
-          Add another account
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          Settings
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <Logout fontSize="small" />
-          </ListItemIcon>
-          Logout
-        </MenuItem>
+        <Link to="/launchpad/create-fairlaunch" style={{ textDecoration: 'none', color: 'white' }}>
+          <MenuItem onClick={handleClose}>
+            Create Fair Launch
+          </MenuItem>
+        </Link>
+        <Divider />
+        <Link to="/utility/create-token" style={{ textDecoration: 'none', color: 'white' }}>
+          <MenuItem onClick={handleClose}>
+            Create Token
+          </MenuItem>
+        </Link>
+        <Divider />
+        <Link to="" style={{ textDecoration: 'none', color: 'white' }}>
+          <MenuItem onClick={handleClose} sx={{ color: "#F20CEC" }}>
+            Apply For Alpha Incubation
+          </MenuItem>
+        </Link>
       </Menu>
     </React.Fragment>
   );
