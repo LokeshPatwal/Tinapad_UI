@@ -25,7 +25,7 @@ export default function ConnectWallet() {
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-        <Tooltip title="Account settings">
+        <Tooltip title="">
         <ColorButton
             onClick={handleClick}
             aria-controls={open ? 'account-menu' : undefined}

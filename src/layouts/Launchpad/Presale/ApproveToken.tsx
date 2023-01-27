@@ -94,7 +94,7 @@ export default function ApproveToken() {
                   sx={{
                     fontWeight: { xs: '200', sm: '300', md: '600' },
                     fontSize: { xs: '13px', sm: '14px', md: '16px' },
-                    lineHeight: "18px", color: 'white',
+                    lineHeight: "18px", color: 'white'
                   }}
                 >
                   {o?.label}

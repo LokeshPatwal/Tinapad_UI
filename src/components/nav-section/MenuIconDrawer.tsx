@@ -40,12 +40,12 @@ const MenuIconDrawer = () => {
         </List>
     );
     return (
-        <div>
+        <div >
             {
                 (['left'] as const).map((anchor) => (
                     <React.Fragment key={anchor}>
                         <Toolbar>
-                            <IconButton color="inherit" aria-label="menu" onClick={toggleDrawer(anchor, true)}>
+                            <IconButton onClick={toggleDrawer(anchor, true)}>
                                 <Image
                                     visibleByDefault
                                     alt="Hamburger menu"

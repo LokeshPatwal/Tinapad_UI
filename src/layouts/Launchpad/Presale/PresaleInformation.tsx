@@ -71,16 +71,7 @@ const PresaleInformation = () => {
         { label: '12 Angry Men', year: 1957 },
         { label: "Schindler's List", year: 1993 },
         { label: 'Pulp Fiction', year: 1994 },
-        {
-            label: 'The Lord of the Rings: The Return of the King',
-            year: 2003,
-        },
-        { label: 'The Good, the Bad and the Ugly', year: 1966 },
-        { label: 'Fight Club', year: 1999 },
-        {
-            label: 'The Lord of the Rings: The Fellowship of the Ring',
-            year: 2001,
-        },]
+    ]
 
     return (
         <Box sx={{

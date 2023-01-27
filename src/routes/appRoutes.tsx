@@ -22,6 +22,7 @@ import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import ArticleIcon from '@mui/icons-material/Article';
 import BorderAllIcon from '@mui/icons-material/BorderAll';
+import PresaleCalculator from "../pages/PresaleCalculator";
 
 
 const appRoutes: RouteType[] = [
@@ -201,7 +202,7 @@ const appRoutes: RouteType[] = [
       },
       {
         path: "/utility/presale-calculator",
-        element: <Airdrop />,
+        element: <PresaleCalculator />,
         state: "utility.presale-calculator",
         sidebarProps: {
           displayText: "Presale Calculator",

@@ -12,9 +12,7 @@ const TokenLock = () => {
 
     return (
         <>
-            <Box mx='4%'>
-                <Header />
-            </Box>
+            <Header />
             <Box sx={{
                 backgroundColor: '#1D1F23', marginX: 'auto', marginY: 'auto', display: 'flex', flexDirection: 'column', rowGap: '2rem', boxSizing: 'border-box', padding: '5%', pb: '1.2rem', borderRadius: '20px', marginTop: '2rem', fontFamily: 'Poppins', mb: '1rem',
                 width: { xs: '92%', sm: '90%', md: '80%', lg: '65%' }

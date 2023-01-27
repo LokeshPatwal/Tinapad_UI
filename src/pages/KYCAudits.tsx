@@ -18,9 +18,7 @@ import MoreIcon from '../components/MoreIcon';
 const KYCAudits = () => {
   return (
     <>
-      <Box mx='4%'>
-        <Header />
-      </Box>
+      <Header />
       <Box sx={{ py: '2%', px: '5%', display: 'flex', flexDirection: 'column', rowGap: '2rem' }}>
         <Box sx={{ bgcolor: '#D9D9D9', height: '12rem', width: '100%' }}>Image</Box>
         <Box sx={{ textAlign: 'left', px: { xs: '1%', sm: '5%' } }}>

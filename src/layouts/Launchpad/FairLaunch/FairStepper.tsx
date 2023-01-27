@@ -9,6 +9,8 @@ import FairApproveToken from './FairApproveToken';
 import FairPresaleInform from './FairPresaleInform';
 import FairProjectInform from './FairProjectInform';
 import FairSubmit from './FairSubmit';
+import { headingFont } from "../../../Fonts";
+import ThemeProvider from "@mui/material/styles/ThemeProvider";
 
 const FairStepper = () => {
   const steps = [
@@ -64,28 +66,30 @@ const FairStepper = () => {
       <Stepper nonLinear activeStep={activeStep} alternativeLabel>
         {steps.map((o, index) => (
           <Step key={o.id} completed={completed[index]}>
-            <StepButton onClick={handleStep(index)}>
-              <Typography
-                sx={{
-                  fontWeight: { xs: '200', sm: '300', md: '600' },
-                  fontSize: { xs: '13px', sm: '14px', md: '16px' },
-                  lineHeight: "19px",
-                }}
-              >
-                {o?.label}
-              </Typography>
-              <br />
-              <Typography
-                sx={{
-                  fontWeight: "400",
-                  fontSize: "10px",
-                  lineHeight: "12px",
-                  opacity: 0.8,
-                }}
-              >
-                {o?.subLable}
-              </Typography>
-            </StepButton>
+            <ThemeProvider theme={headingFont}>
+              <StepButton onClick={handleStep(index)}>
+                <Typography
+                  sx={{
+                    fontWeight: { xs: '200', sm: '300', md: '600' },
+                    fontSize: { xs: '13px', sm: '14px', md: '16px' },
+                    lineHeight: "19px", color: 'white'
+                  }}
+                >
+                  {o?.label}
+                </Typography>
+                <br />
+                <Typography
+                  sx={{
+                    fontWeight: "400",
+                    fontSize: "10px",
+                    lineHeight: "12px",
+                    opacity: 0.8, color: 'white'
+                  }}
+                >
+                  {o?.subLable}
+                </Typography>
+              </StepButton>
+            </ThemeProvider>
           </Step>
         ))}
       </Stepper>

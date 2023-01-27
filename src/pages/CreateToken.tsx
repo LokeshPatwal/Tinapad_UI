@@ -88,10 +88,7 @@ const CreateToken = () => {
 
     return (
         <>
-
-            <Box mx='4%'>
-                <Header />
-            </Box>
+            <Header />
             <Box sx={{ backgroundColor: '#1D1F23', width: '92%', marginX: 'auto', marginY: 'auto', display: 'flex', flexDirection: 'column', rowGap: '2rem', boxSizing: 'border-box', padding: '5%', pb: '1rem', borderRadius: '20px', my: '2rem', fontFamily: 'Poppins' }}>
                 <Stack direction={{ xs: 'column' }} spacing={3} sx={{ mt: { xs: '1.6rem', sm: '1rem', md: '0' } }}>
                     <FormLabel sx={{ fontWeight: '600', fontSize: '24px', color: '#FFFFFF', textAlign: 'left' }}>Create Token</FormLabel>

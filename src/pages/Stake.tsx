@@ -64,10 +64,7 @@ const Stake = () => {
 
     return (
         <>
-
-            <Box mx='4%'>
-                <Header />
-            </Box>
+            <Header />
             <Box sx={{
                 backgroundColor: '#1D1F23', marginX: 'auto', marginY: 'auto', display: 'flex', flexDirection: 'column', boxSizing: 'border-box', padding: '5%', pb: '1.5rem', borderRadius: '20px', my: '2rem',
                 width: { xs: '92%', sm: '90%', md: '80%', lg: '65%' }

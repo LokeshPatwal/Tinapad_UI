@@ -143,7 +143,7 @@ const DesktopView = () => {
 
 const MobileView = () => {
   return (
-    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: 'center' }}>
+    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: 'center', mx: '4%' }}>
       <Box sx={{ width: '10%', position: 'relative', right: '18px' }}>
         <MenuIconDrawer />
       </Box>
