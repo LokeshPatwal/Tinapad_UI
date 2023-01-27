@@ -39,7 +39,7 @@ const DesktopView = () => {
         setChain("Binance")
         break;
       case 137:
-        setChain("Poygon")
+        setChain("Polygon")
         break;
       default:
         setChain("Choose right ")
@@ -142,7 +142,7 @@ const MobileView = () => {
         setChain("Binance")
         break;
       case 137:
-        setChain("Poygon")
+        setChain("Polygon")
         break;
       default:
         setChain("Network")
