@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Autocomplete, FormControl, FormGroup, MenuItem, Stack, TextField } from '@mui/material';
@@ -12,6 +13,28 @@ import { StaticDateRangePicker } from '@mui/lab';
 
 
 const PresaleInformation = () => {
+    const [formData, setFormData] = useState({
+        saleTitle: '',
+        totalSupply: '',
+        fundRaisingToken: '',
+        customFundRaising: '',
+        presaleRate: '',
+        dexListingRate: '',
+        dexLiquidity: '',
+        liquidityLocked: '',
+        softCap: '',
+        hardCap: '',
+        minimumBuy: '',
+        maximumBuy: '',
+        startDate: '',
+        endDate: '',
+        estimatedDexListing: '',
+        unsoldTokens: '',
+        presaleType: '',
+        whitelistTimer: '',
+        stealthWallet: '',
+
+    })
 
     const IOSSwitch = styled((props: SwitchProps) => (
         <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
@@ -62,8 +85,7 @@ const PresaleInformation = () => {
             }),
         },
     }));
-
-    const top100Films = [
+    const FundRaisingArray = [
         { label: 'The Shawshank Redemption', year: 1994 },
         { label: 'The Godfather', year: 1972 },
         { label: 'The Godfather: Part II', year: 1974 },
@@ -73,6 +95,12 @@ const PresaleInformation = () => {
         { label: 'Pulp Fiction', year: 1994 },
     ]
 
+    const onChangeHandler = (e: any) => {
+        setFormData(() => ({
+            ...formData,
+            [e.target.name]: e.target.value
+        }))
+    }
     return (
         <Box sx={{
             backgroundColor: '#1D1F23', display: 'flex', flexDirection: 'column', rowGap: '2rem', boxSizing: 'border-box', borderRadius: '20px',
@@ -81,56 +109,57 @@ const PresaleInformation = () => {
         }}>
             <Stack spacing={3.2} sx={{ mt: { xs: '2rem', sm: '1rem', md: '0' } }}>
                 <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }} spacing={3}>
-                    <TextField fullWidth label="Sale Title" type="text" />
-                    <TextField fullWidth label="Total Supply" type="text" />
+                    <TextField fullWidth label="Sale Title" type="text" onChange={onChangeHandler} name='saleTitle' />
+                    <TextField fullWidth label="Total Supply" type="text" onChange={onChangeHandler} name='totalSupply' />
                 </Stack>
                 <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }} spacing={3}>
-                    <Autocomplete fullWidth disablePortal options={top100Films}
-                        renderInput={(params) => <TextField {...params} label="Fund Raising Token" />} />
-                    <TextField fullWidth label="Custom Fund Raising Token" type="text" />
+                    <Autocomplete fullWidth disablePortal options={FundRaisingArray}
+                        renderInput={(params) => <TextField {...params} label="Fund Raising Token" onChange={onChangeHandler} name='fundRaisingToken' />}
+                    />
+                    <TextField fullWidth label="Custom Fund Raising Token" type="text" onChange={onChangeHandler} name='customFundRaising' />
                 </Stack>
                 <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }} spacing={3}>
-                    <TextField fullWidth label="Presale Rate" type="text" />
-                    <TextField fullWidth label="Dex Listing Rate" type="text" />
+                    <TextField fullWidth label="Presale Rate" type="text" onChange={onChangeHandler} name='presaleRate' />
+                    <TextField fullWidth label="Dex Listing Rate" type="text" onChange={onChangeHandler} name='dexListingRate' />
                 </Stack>
                 <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }} spacing={3}>
-                    <TextField fullWidth label="Dex Liquidity [%]" type="text" />
-                    <TextField fullWidth label="Liquidity Locked [Days]" type="text" />
+                    <TextField fullWidth label="Dex Liquidity [%]" type="text" onChange={onChangeHandler} name='dexLiquidity' />
+                    <TextField fullWidth label="Liquidity Locked [Days]" type="text" onChange={onChangeHandler} name='liquidityLocked' />
                 </Stack>
                 <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }} spacing={3}>
-                    <TextField fullWidth label="Soft Cap [BNB]" type="text" />
-                    <TextField fullWidth label="Hard Cap [BNB]" type="text" />
+                    <TextField fullWidth label="Soft Cap [BNB]" type="text" onChange={onChangeHandler} name='softCap' />
+                    <TextField fullWidth label="Hard Cap [BNB]" type="text" onChange={onChangeHandler} name='hardCap' />
                 </Stack>
                 <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }} spacing={3}>
-                    <TextField fullWidth label="Minimum Buy [BNB]" type="text" />
-                    <TextField fullWidth label="Maximum Buy [BNB]" type="text" />
+                    <TextField fullWidth label="Minimum Buy [BNB]" type="text" onChange={onChangeHandler} name='minimumBuy' />
+                    <TextField fullWidth label="Maximum Buy [BNB]" type="text" onChange={onChangeHandler} name='maximumBuy' />
                 </Stack>
                 <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }} spacing={3}>
-                    <TextField fullWidth
+                    <TextField fullWidth onChange={onChangeHandler} name='startDate'
                         id="datetime-local" label="Start Date [local]"
                         type="datetime-local" defaultValue="2017-05-24T10:30"
                     />
-                    <TextField fullWidth
+                    <TextField fullWidth onChange={onChangeHandler} name='endDate'
                         id="datetime-local" label="End Date [local]"
                         type="datetime-local" defaultValue="2017-05-24T10:30" />
                 </Stack>
                 <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }} spacing={3}>
-                    <TextField fullWidth
+                    <TextField fullWidth onChange={onChangeHandler} name='estimatedDexListing'
                         id="datetime-local" label="Estimated DEX Listing Date [local]"
                         type="datetime-local" defaultValue="2017-05-24T10:30" />
-                    <Autocomplete fullWidth disablePortal options={top100Films}
-                        renderInput={(params) => <TextField {...params} label="Select what happens to Unsold Tokens" />} />
+                    <Autocomplete fullWidth disablePortal options={FundRaisingArray}
+                        renderInput={(params) => <TextField {...params} label="Select what happens to Unsold Tokens" onChange={onChangeHandler} name='unsoldTokens' />} />
                 </Stack>
                 <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }} spacing={3}>
                     <Stack sx={{ width: '100%' }}>
-                        <Autocomplete fullWidth disablePortal options={top100Films}
-                            renderInput={(params) => <TextField {...params} label="Presale Type" />} />
+                        <Autocomplete fullWidth disablePortal options={FundRaisingArray}
+                            renderInput={(params) => <TextField {...params} label="Presale Type" onChange={onChangeHandler} name='presaleType' />} />
                         <Paragraph sx={{ color: '#FC9823', textAlign: 'left', mt: '0.5rem', fontSize: '12px', width: '100%' }}>Read more about Presale Type here Docs</Paragraph>
                     </Stack>
-                    <TextField fullWidth label="Whitelist Timer" type="text" />
+                    <TextField fullWidth label="Whitelist Timer" type="text" onChange={onChangeHandler} name='whitelistTimer' />
                 </Stack>
                 <Stack sx={{ width: { xs: '100%', md: '50%', lg: '49%' } }}>
-                    <TextField label="Stealth Wallet" type="text" />
+                    <TextField label="Stealth Wallet" type="text" onChange={onChangeHandler} name='stealthWallet' />
                     <Paragraph sx={{ color: '#FC9823', textAlign: 'left', mt: '0.5rem', fontSize: '12px' }}>Read more about Presale Type here Docs</Paragraph>
                 </Stack>
             </Stack>
@@ -163,8 +192,8 @@ const PresaleInformation = () => {
                         display: 'flex', columnGap: '1rem', textAlign: 'right',
                         justifyContent: { xs: 'center', md: 'end' }
                     }}>
-                        <ColorButton sx={{ width: '8rem', bgcolor: 'transparent', border: '1px solid #F20CEC' }}>Back</ColorButton>
-                        <ColorButton sx={{ width: '8rem' }}>Next</ColorButton>
+                        <ColorButton sx={{ width: '8rem', bgcolor: 'transparent', border: '1px solid #F20CEC' }} type='button'>Back</ColorButton>
+                        <ColorButton sx={{ width: '8rem' }} type='button'>Next</ColorButton>
                     </Box>
                 </Box>
             </Stack>

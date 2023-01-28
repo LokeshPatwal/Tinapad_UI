@@ -59,11 +59,11 @@ const DesktopView = () => {
   }
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: 'center' }}>
       <Box>
         <SearchBar />
       </Box>
-      <Stack direction="row" spacing={2}>
+      <Stack direction="row" spacing={2} >
         {/* <ColorButton
           variant="contained"
           startIcon={<AddCircleIcon />}
