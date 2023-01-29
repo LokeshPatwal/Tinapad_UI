@@ -10,15 +10,8 @@ import { ColorButton } from '../../../components/Button';
 import Paragraph from '../../../components/Paragraph';
 
 const HyperPresaleInform = () => {
-  const top100Films = [
-    { label: 'The Shawshank Redemption', year: 1994 },
-    { label: 'The Godfather', year: 1972 },
-    { label: 'The Godfather: Part II', year: 1974 },
-    { label: 'The Dark Knight', year: 2008 },
-    { label: '12 Angry Men', year: 1957 },
-    { label: "Schindler's List", year: 1993 },
-    { label: 'Pulp Fiction', year: 1994 },
-  ]
+
+  const FundRaising = ['BNB', 'BUSD', 'Custom']
 
   const IOSSwitch = styled((props: SwitchProps) => (
     <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
@@ -80,8 +73,18 @@ const HyperPresaleInform = () => {
       <Stack spacing={3.2} sx={{ mt: { xs: '2rem', sm: '1rem', md: '0' } }}>
         <TextField id="outlined-required" label="Sale Title" defaultValue="Type Input Here" />
         <TextField id="outlined-required" label="Total Supply" />
-        <Autocomplete disablePortal options={top100Films} sx={{ display: 'flex', flex: '1' }}
-          renderInput={(params) => <TextField {...params} label="Fund Raising Token" />} />
+        {/* <Autocomplete disablePortal options={FundRaising} sx={{ display: 'flex', flex: '1' }}
+          renderInput={(params) => <TextField {...params} label="Fund Raising Token" />} /> */}
+        <TextField id="outlined-select-currency" select
+          label="Select"
+          defaultValue="BNB"
+        >
+          {FundRaising.map((option, index) => (
+            <MenuItem key={index} value={option}>
+              {option}
+            </MenuItem>
+          ))}
+        </TextField>
         <Box sx={{ width: '100%' }}>
           <TextField id="outlined-required" label="Presales Amount" sx={{ display: 'flex', flex: '1' }} />
           <Paragraph sx={{ color: '#F20CEC', textAlign: 'left', mt: '0.4rem', fontWeight: '400', fontSize: '13px' }}>Total amount of tokens for hyper launch</Paragraph>
@@ -111,7 +114,7 @@ const HyperPresaleInform = () => {
 
         <TextField id="outlined-required" label="*UTC Time is displayed" defaultValue="Read more about Presale Type here Docs"
           sx={{ display: 'flex', flex: '1' }} />
-        <Autocomplete options={top100Films} renderInput={(params) => <TextField {...params} label="Presales" />} sx={{ display: 'flex', flex: '1' }} />
+        <Autocomplete options={FundRaising} renderInput={(params) => <TextField {...params} label="Presales" />} sx={{ display: 'flex', flex: '1' }} />
         <TextField id="outlined-required" defaultValue="Tip: Use another (stealth) wallet for uploading the tokens & finalization." label="Presale Type" sx={{ display: 'flex', flex: '1' }} />
         <TextField id="outlined-required" label="Presales Type" defaultValue="Stealth wallet"
           sx={{ display: 'flex', flex: '1' }} />

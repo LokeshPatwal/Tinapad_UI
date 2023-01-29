@@ -85,17 +85,11 @@ const PresaleInformation = () => {
             }),
         },
     }));
-    const FundRaisingArray = [
-        { label: 'The Shawshank Redemption', year: 1994 },
-        { label: 'The Godfather', year: 1972 },
-        { label: 'The Godfather: Part II', year: 1974 },
-        { label: 'The Dark Knight', year: 2008 },
-        { label: '12 Angry Men', year: 1957 },
-        { label: "Schindler's List", year: 1993 },
-        { label: 'Pulp Fiction', year: 1994 },
-    ]
+
+    const FundRaisingArray = ['BNB', 'BUSD', 'Custom']
 
     const onChangeHandler = (e: any) => {
+        console.log(e)
         setFormData(() => ({
             ...formData,
             [e.target.name]: e.target.value
@@ -113,9 +107,18 @@ const PresaleInformation = () => {
                     <TextField fullWidth label="Total Supply" type="text" onChange={onChangeHandler} name='totalSupply' />
                 </Stack>
                 <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }} spacing={3}>
-                    <Autocomplete fullWidth disablePortal options={FundRaisingArray}
-                        renderInput={(params) => <TextField {...params} label="Fund Raising Token" onChange={onChangeHandler} name='fundRaisingToken' />}
-                    />
+                    <TextField fullWidth id="outlined-select-currency" select name='fundRaisingToken'
+                        onChange={onChangeHandler}
+                        label="Fund Raising Token"
+                        defaultValue='BNB'
+                        value={'BNB'}
+                    >
+                        {FundRaisingArray.map((option, index) => (
+                            <MenuItem key={index} value={option}>
+                                {option}
+                            </MenuItem>
+                        ))}
+                    </TextField>
                     <TextField fullWidth label="Custom Fund Raising Token" type="text" onChange={onChangeHandler} name='customFundRaising' />
                 </Stack>
                 <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }} spacing={3}>
@@ -147,13 +150,31 @@ const PresaleInformation = () => {
                     <TextField fullWidth onChange={onChangeHandler} name='estimatedDexListing'
                         id="datetime-local" label="Estimated DEX Listing Date [local]"
                         type="datetime-local" defaultValue="2017-05-24T10:30" />
-                    <Autocomplete fullWidth disablePortal options={FundRaisingArray}
-                        renderInput={(params) => <TextField {...params} label="Select what happens to Unsold Tokens" onChange={onChangeHandler} name='unsoldTokens' />} />
+                    <TextField fullWidth id="outlined-select-currency" select name='unsoldTokens'
+                        onChange={onChangeHandler}
+                        label="Select what happens to Unsold Tokens"
+                        defaultValue="BNB"
+                    >
+                        {FundRaisingArray.map((option, index) => (
+                            <MenuItem key={index} value={option}>
+                                {option}
+                            </MenuItem>
+                        ))}
+                    </TextField>
                 </Stack>
                 <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }} spacing={3}>
                     <Stack sx={{ width: '100%' }}>
-                        <Autocomplete fullWidth disablePortal options={FundRaisingArray}
-                            renderInput={(params) => <TextField {...params} label="Presale Type" onChange={onChangeHandler} name='presaleType' />} />
+                        <TextField fullWidth id="outlined-select-currency" select name='presaleType'
+                            onChange={onChangeHandler}
+                            label="Presale Type"
+                            defaultValue="BNB"
+                        >
+                            {FundRaisingArray.map((option, index) => (
+                                <MenuItem key={index} value={option}>
+                                    {option}
+                                </MenuItem>
+                            ))}
+                        </TextField>
                         <Paragraph sx={{ color: '#FC9823', textAlign: 'left', mt: '0.5rem', fontSize: '12px', width: '100%' }}>Read more about Presale Type here Docs</Paragraph>
                     </Stack>
                     <TextField fullWidth label="Whitelist Timer" type="text" onChange={onChangeHandler} name='whitelistTimer' />
@@ -193,7 +214,7 @@ const PresaleInformation = () => {
                         justifyContent: { xs: 'center', md: 'end' }
                     }}>
                         <ColorButton sx={{ width: '8rem', bgcolor: 'transparent', border: '1px solid #F20CEC' }} type='button'>Back</ColorButton>
-                        <ColorButton sx={{ width: '8rem' }} type='button'>Next</ColorButton>
+                        <ColorButton sx={{ width: '8rem' }} type='button' onClick={() => { console.table(formData) }}>Next</ColorButton>
                     </Box>
                 </Box>
             </Stack>
