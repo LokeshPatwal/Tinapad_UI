@@ -15,16 +15,4 @@ export const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
   },
 }));
 
-export const HeaderButton = styled(Button)<any>(({ theme }) => ({
-  color: "#FFFFFF",
-  backgroundColor: "green",
-  borderRadius: "30px",
-  fontSize: "14px",
-  fontWeight: "700",
-  "&:hover": {
-    backgroundColor: "green",
-    color: "#FFFFFF",
-  },
-
-}));
 

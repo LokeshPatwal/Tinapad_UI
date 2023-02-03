@@ -7,7 +7,7 @@ import Footer from "../layouts/home/Footer";
 const Home = () => {
   return (
     <>
-      <Box sx={{ p: { xs: 1, sm: 2 } }} >
+      <Box sx={{ p: { xs: 1, sm: 2 } }}>
         <Header />
         <LaunchPadRecord />
         <LaunchPad />
