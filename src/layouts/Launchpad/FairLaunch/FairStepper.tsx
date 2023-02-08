@@ -11,6 +11,25 @@ import FairProjectInform from './FairProjectInform';
 import FairSubmit from './FairSubmit';
 import { headingFont } from "../../../Fonts";
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
+import { createTheme } from '@mui/material/styles';
+
+const steppertheme = createTheme({
+  components: {
+    MuiStepIcon: {
+      styleOverrides: {
+        root: {
+          borderRadius: '0px',
+          backgroundColor: 'green !important',
+        },
+        text: {
+          borderRadius: '0px',
+          backgroundColor: 'green !important',
+        }
+      },
+    },
+  },
+});
+
 
 const FairStepper = () => {
   const steps = [
@@ -43,19 +62,15 @@ const FairStepper = () => {
   const totalSteps = () => {
     return steps.length;
   };
-
   const completedSteps = () => {
     return Object.keys(completed).length;
   };
-
   const allStepsCompleted = () => {
     return completedSteps() === totalSteps();
   };
-
   const handleStep = (step: number) => () => {
     setActiveStep(step);
   };
-
   const handleReset = () => {
     setActiveStep(0);
     setCompleted({});
@@ -63,36 +78,38 @@ const FairStepper = () => {
 
   return (
     <Box sx={{ width: '100%', my: '3rem' }}>
-      <Stepper nonLinear activeStep={activeStep} alternativeLabel>
-        {steps.map((o, index) => (
-          <Step key={o.id} completed={completed[index]}>
-            <ThemeProvider theme={headingFont}>
-              <StepButton onClick={handleStep(index)}>
-                <Typography
-                  sx={{
-                    fontWeight: { xs: '200', sm: '300', md: '600' },
-                    fontSize: { xs: '13px', sm: '14px', md: '16px' },
-                    lineHeight: "19px", color: 'white'
-                  }}
-                >
-                  {o?.label}
-                </Typography>
-                <br />
-                <Typography
-                  sx={{
-                    fontWeight: "400",
-                    fontSize: "10px",
-                    lineHeight: "12px",
-                    opacity: 0.8, color: 'white'
-                  }}
-                >
-                  {o?.subLable}
-                </Typography>
-              </StepButton>
-            </ThemeProvider>
-          </Step>
-        ))}
-      </Stepper>
+      <ThemeProvider theme={steppertheme}>
+        <Stepper nonLinear activeStep={activeStep} alternativeLabel orientation="horizontal">
+          {steps.map((o, index) => (
+            <Step key={o.id} completed={completed[index]}>
+              <ThemeProvider theme={headingFont}>
+                <StepButton onClick={handleStep(index)}>
+                  <Typography
+                    sx={{
+                      fontWeight: { xs: '200', sm: '300', md: '600' },
+                      fontSize: { xs: '13px', sm: '14px', md: '16px' },
+                      lineHeight: "19px", color: 'white'
+                    }}
+                  >
+                    {o?.label}
+                  </Typography>
+                  <br />
+                  <Typography
+                    sx={{
+                      fontWeight: "400",
+                      fontSize: "10px",
+                      lineHeight: "12px",
+                      opacity: 0.8, color: 'white'
+                    }}
+                  >
+                    {o?.subLable}
+                  </Typography>
+                </StepButton>
+              </ThemeProvider>
+            </Step>
+          ))}
+        </Stepper>
+      </ThemeProvider>
       <Box>
         {allStepsCompleted() ? (
           <React.Fragment>

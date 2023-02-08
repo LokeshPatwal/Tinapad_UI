@@ -21,6 +21,7 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@walletconnect/web3-provider": "1.8.0",
+    "@web3-react/core": "^6.1.9",
     "assert": "^2.0.0",
     "crypto-browserify": "^3.12.0",
     "dotenv": "^16.0.1",
